@@ -114,6 +114,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// Port to use on Render
 var port = process.env.PORT || 3001;
 app.listen (port);
 
