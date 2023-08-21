@@ -1,0 +1,33 @@
+<div class="container text-center mt-3 mb-3">
+    <table class="table caption-top">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users }}
+            <tr>
+                <td>{{ _id }}</td>
+                <td>{{ email }}</td>
+                <form action="/admin/updaterole" method="post">
+                    <td>
+                        <input type="hidden" name="id" value="{{ _id }}">
+                        <select class="form-select" name="role" id="role">
+                            <option>{{role}}</option>
+                            <option value="ADMIN">ADMIN</option>
+                            <option value="USER">USER</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="submit" value="Update">
+                    </td>
+                </form>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

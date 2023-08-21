@@ -1,0 +1,37 @@
+<h1 class="text text-dark text-center">Edit Toy</h1>
+<div class="container col-md-8 mt-3 mb-3 card bg-light">
+    <form action="/products/edit/{{ product._id }}" method="post">
+        <br>
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" value="{{ product.name }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input class="form-control" type="file" name="image" value="{{ product.image }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Brand</label>
+            <input type="text" name="brand" class="form-control" value="{{ product.brand }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <input type="text" name="description" class="form-control" value="{{ product.description }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Quantity</label>
+            <input type="number" name="quantity" class="form-control" min="1" value="{{ product.quantity }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" name="price" class="form-control" min="1" value="{{ product.price }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Create at</label>
+            <input type="hidden" name="create_at" value="{{ product.create_at }}">
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-outline-dark" value="Save Changes">
+        </div>
+    </form>
+</div>

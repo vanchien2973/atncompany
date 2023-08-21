@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ATN</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="/stylesheets/all.min.css">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="/" class="navbar-brand">
+            <img style="width: 48px; object-fit: cover; height: 50px;" src="/images/atnlogo.png" alt="company logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item mx-2">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="/products" class="nav-link">Shop</a>
+                </li>
+                {{#if user}}
+                <li class="nav-item mx-2">
+                    <a href="/users/profile" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="/admin/products" class="nav-link">Manage Products</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="/admin/users" class="nav-link">Manage Users</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="/auth/logout" class="nav-link">Logout</a>
+                </li>
+                {{else}}
+                <li class="nav-item mx-2">
+                    <a href="/auth/login" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="/auth/register" class="nav-link">Register</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="navbar-icons d-none d-lg-flex">
+            <!-- single icon -->
+            <div class="navbar-icon mx-2"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <!-- end of single icon -->
+            <!-- single icon -->
+            <a href="#" class="navbar-icon mx-2 navbar-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="cart-items">0</div>
+            </a>
+            <!-- end of  single icon -->
+        </div>
+    </nav>
+    <!-- end of navbar -->
+
+    {{!-- Message Errol --}}
+    {{#if messages.error}}
+    <div style="border-radius: 10px; padding: 10px; max-width: 640px; margin: 0 auto;"
+        class="alert alert-danger text-center" role="alert">
+        {{#each messages.error as |message|}}
+        <h6>{{message}}</h6> <!-- Change message.error to message -->
+        {{/each}}
+    </div><br>
+    {{/if}}
+    {{!-- End of Message Errol --}}
+
+    {{{body}}}
+
+    <!-- skills section -->
+    <section id="skills" class="skills py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 col-md-6 col-lg-4 mx-auto d-flex my-3">
+                    <div class="skill-icon mr-3">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="skill-text">
+                        <h3 class="text-uppercase text-white">
+                            free shipping
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-10 col-md-6 col-lg-4 mx-auto d-flex my-3">
+                    <div class="skill-icon mr-3">
+                        <i class="fas fa-comment-dollar"></i>
+                    </div>
+                    <div class="skill-text">
+                        <h3 class="text-uppercase text-white">
+                            price promise
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-10 col-md-6 col-lg-4 mx-auto d-flex my-3">
+                    <div class="skill-icon mr-3">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="skill-text">
+                        <h3 class="text-uppercase text-white">
+                            lifetime warranty
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of skills section -->
+
+    <!-- footer section -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 mx-auto text-center">
+                    <h1 class="text-uppercase font-weight-bold text-yellow d-inline-block footer-title">
+                        atn company
+                    </h1>
+                    <!-- footer icons -->
+                    <div class="footer-icons d-flex justify-content-center my-5">
+                        <!-- single icon -->
+                        <a href="" class="footer-icon mx-2">
+                            <div class="fab fa-facebook"></div>
+                        </a>
+                        <!-- end of single icon -->
+                        <!-- single icon -->
+                        <a href="" class="footer-icon mx-2">
+                            <div class="fab fa-twitter"></div>
+                        </a>
+                        <!-- end of single icon -->
+                        <!-- single icon -->
+                        <a href="" class="footer-icon mx-2">
+                            <div class="fab fa-youtube"></div>
+                        </a>
+                        <!-- end of single icon -->
+                        <!-- single icon -->
+                        <a href="" class="footer-icon mx-2">
+                            <div class="fab fa-google-plus"></div>
+                        </a>
+                        <!-- end of single icon -->
+                        <!-- single icon -->
+                        <a href="" class="footer-icon mx-2">
+                            <div class="fab fa-instagram"></div>
+                        </a>
+                        <!-- end of single icon -->
+                    </div>
+                    <!-- footer icons -->
+                    <div class="footer-contact d-flex justify-content-around mt-5">
+                        <!-- single contact -->
+                        <div class="text-capitalize">
+                            <span class="contact-icon mr-2">
+                                <i class="fas fa-map"></i>
+                            </span>
+                            123 Main Street, Los Angeles
+                        </div>
+                        <!-- end of single contact -->
+                        <!-- single contact -->
+                        <div class="text-capitalize">
+                            <span class="contact-icon mr-2">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                            Phone : + (310) 111 2222
+                        </div>
+                        <!-- end of single contact -->
+                        <!-- single contact -->
+                        <div class="text-capitalize">
+                            <span class="contact-icon mr-2">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            Email : atncompany@email.com
+                        </div>
+                        <!-- end of single contact -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer section -->
+
+    <!-- jQuery -->
+    <script src="javascripts/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="javascripts/bootstrap.bundle.min.js"></script>
+    <!-- fontwesome js -->
+    <script src="javascripts/all.min.js"></script>
+</body>
+
+</html>

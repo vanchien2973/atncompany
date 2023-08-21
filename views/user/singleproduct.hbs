@@ -1,0 +1,60 @@
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="images p-3">
+                            <div class="text-center p-4"> <img id="main-image" src="/images/{{ product.image }}"
+                                    width="250" /> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product p-4">
+                            <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">{{ product.brand
+                                    }}</span>
+                                <h5 class="text-uppercase">{{ product.name }}</h5>
+                                <div class="price d-flex flex-row align-items-center"> <span class="act-price">${{
+                                        product.price }}</span>
+                                </div>
+                            </div>
+                            <p class="about">{{ product.description }}</p>
+                            <div class="cart mt-4 align-items-center">
+                                <form action="#" method="post">
+                                    <input type="hidden" name="product_id" value="{{ product._id }}">
+                                    <div class="d-flex align-items-center">
+                                        <label for="quantity" class="mr-2">Quantity:</label>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary quantity-btn"
+                                            onclick="changeQuantity(-1)">-</button>
+                                        <input name="quantity" style="width: 40px; padding: 1.5px; text-align: center;"
+                                            value="1" min="1" max="{{product.quantity}}">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary quantity-btn"
+                                            onclick="changeQuantity(1)">+</button>
+                                    </div><br>
+                                    <button type="submit" class="btn btn-danger text-uppercase mr-2 px-4">Add to
+                                        cart</button>
+                                    <i class="fa fa-heart text-muted"></i>
+                                    <i class="fa fa-share-alt text-muted"></i>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+<script>
+    function changeQuantity(delta) {
+        const quantityInput = document.querySelector('input[name="quantity"]');
+        let quantity = parseInt(quantityInput.value);
+        quantity += delta;
+
+        if (quantity < 1) {
+            quantity = 1;
+        }
+
+        quantityInput.value = quantity;
+    }
+</script>

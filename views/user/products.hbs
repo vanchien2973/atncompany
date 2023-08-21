@@ -1,0 +1,91 @@
+<br><br><br><br>
+<!-- product section  -->
+<section id="products" class="products">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- sidebar -->
+            <div class="col-md-3 text-capitalize my-3 px-5">
+                <div class="products-categories-title my-4">
+                    <h6 class="text-uppercase">
+                        shop by price
+                    </h6>
+                    <div class="products-categories-underline"></div>
+                </div>
+                <div class="form-group">
+                    <select class="form-select" name="form-control" onchange="window.location.href=this.value">
+                        <option selected>Sort</option>
+                        <option value="/sort/price/asc">Sort by Price Ascending</option>
+                        <option value="/sort/price/desc">Sort by Price Descending</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text form-icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <form action="/search" method="post">
+                        <input type="search" class="btn btn-outline-dark" name="keyword"
+                            placeholder="Enter name to search" aria-label="Search" aria-describedby="search-addon"
+                            required />
+                    </form>
+                </div>
+            </div>
+            <!-- end of sidebar -->
+            <!-- content -->
+            <div class="col-md-9">
+                <div class="container">
+                    <div class="row">
+                        {{#each products}}
+                        <div class="col-10 mx-auto col-md-6 col-lg-3">
+                            <div class="featured-container p-5">
+                                <a href="/detail/{{_id}}">
+                                    <img src="/images/{{ image }}" alt="{{ name }}" class="img-fluid">
+                                </a>
+                                <a href="#" class="featured-store-link text-capitalize">add to cart</a>
+                            </div>
+                            <h6 class="text-capitalize text-center my-2">
+                                <a style="text-decoration: none; color: black;" href="/detail/{{_id}}">{{ name }}</a>
+                            </h6>
+                            <h6 class="text-center">
+                                <span>${{ price }}</span>
+                            </h6>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <!-- end of content -->
+        </div>
+    </div>
+</section>
+<!-- end of product section  -->
+<br><br><br>
+<!-- newsletter section -->
+<section id="newsletter" class="newsletter py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto text-center">
+                <h2 class="text-uppercase">
+                    newsletter
+                </h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti blanditiis similique eum, aut
+                    culpa maiores cupiditate alias exercitationem error nesciunt.
+                </p>
+                <form action="">
+                    <div class="input-group mt-5 mb-4">
+                        <input type="text" class="text-capitalize form-control" placeholder="enter your email">
+                        <div class="input-group-append">
+                            <div class="input-group-text form-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class=" btn btn-yellow">subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of newsletter section -->
