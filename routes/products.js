@@ -14,17 +14,6 @@ router.get('/add', (req, res) => {
     res.render('admin/products/add_product')
 })
 
-// Middleware to handle favicon requests
-router.use('/edit/:id', (req, res, next) => {
-    if (req.params.id !== 'favicon.ico') {
-        next();
-    } else {
-        // Handle favicon request or simply ignore it
-        // You can send an empty response or a 404 status
-        res.status(404).end();
-    }
-})
-
 router.post('/add', async (req, res) => {
     var product = req.body
     await ProductModel.create(product)
