@@ -1,6 +1,7 @@
 var express = require('express');
 var UserModel = require('../models/UserModel'); 
 const ProductModel = require('../models/ProductModel');
+const CarModel = require('../models/CarModel');
 
 var router = express.Router();
 
@@ -24,8 +25,8 @@ router.get('/products', async (req, res, next) => {
 
 router.get('/cars', async (req, res, next) => {
   try {
-    var products = await ProductModel.find()
-    res.render('admin/cars/carList', {products: products})
+    var cars = await CarModel.find()
+    res.render('admin/cars/carList', {cars: cars})
   } catch (error) {
     next(error)
   }
