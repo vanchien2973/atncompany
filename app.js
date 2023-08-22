@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var adminRouter = require('./routes/admin')
 var productRouter = require('./routes/products')
+var carRouter = require('./routes/cars')
 
 var app = express();
 
@@ -77,6 +78,7 @@ app.use('/users', ensureAuthenticated, usersRouter);
 app.use('/auth', authRouter);
 app.use('/admin', ensureAdmin(), adminRouter);
 app.use('/products', ensureAdmin(), productRouter);
+app.use('/cars', ensureAdmin(), carRouter);
 
 // Xac thuc admin
 function ensureAdmin() {

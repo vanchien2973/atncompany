@@ -22,6 +22,15 @@ router.get('/products', async (req, res, next) => {
   }
 })
 
+router.get('/cars', async (req, res, next) => {
+  try {
+    var products = await ProductModel.find()
+    res.render('admin/cars/carList', {products: products})
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.post('/updaterole', async (req, res, next) => {
   try {
     var id = req.body.id;

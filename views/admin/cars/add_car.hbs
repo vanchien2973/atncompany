@@ -1,0 +1,40 @@
+<h1 class="text text-dark text-center">Add New Toy</h1>
+<div class="container col-md-8 mt-3 mb-3 card bg-light">
+    <form action="/cars/add" method="post">
+        <br>
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input class="form-control" type="file" name="image" multiple required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Brand</label>
+            <input type="text" name="brand" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Quantity</label>
+            <input type="number" name="quantity" class="form-control" min="1" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" name="price" class="form-control" min="1" required>
+        </div>
+        <div class="mb-3">
+            <input type="hidden" name="create_at" value="{{ currentDateTime }}">
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-outline-dark" value="Submit">
+        </div>
+    </form>
+</div>
+<br><br><br><br><br><br>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const createAtField = document.querySelector('input[name="create_at"]');
+        const currentDateTime = new Date().toISOString().slice(0, 10); // Lấy ngày hiện tại dưới định dạng YYYY-MM-DD
+        createAtField.value = currentDateTime;
+    });
+</script>
